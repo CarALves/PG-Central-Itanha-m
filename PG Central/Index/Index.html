@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="Pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >PG IASD Central</title>
+    <link rel="shortcut icon" href="../src/LogoPG.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/60de48ee9a.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-storage-compat.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(227, 236, 245); 
+        
+        }
+        #div_geral {
+            margin: 0 auto;
+            width: 100%;
+            height: 100vh;
+            max-width: 1600px;
+            background-color: rgb(227, 236, 245); 
+            background-image: url('../src/LogoPG.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 160px;
+        }
+        #div_heaad {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            overflow-y: auto;
+            background-color: rgba(1, 24, 19, 0);
+            color: aliceblue;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 0cap;
+        }
+        #div_imagem_login {
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            color:rgb(47, 47, 48) ;
+        }
+        #img_heaad {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgb(95, 94, 94);
+            cursor: pointer;
+            border-radius: 50%;
+            margin-right: 5px;
+            margin-left: 5px;
+            background-color: azure;
+        }
+        #img_heaad:hover {
+            border: 3px solid aqua;
+        }
+        #div_heaad button {
+           min-width: 64px;
+            padding: 7px;
+            background-color: rgba(107, 20, 20, 0);
+            color: rgb(47, 47, 48);
+            border: 0cap;
+            border-radius: 4px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        #div_heaad button:hover {
+            color: rgb(3, 112, 36);
+            border: 2px solid rgb(36, 110, 2);
+        }
+        #btn_heaad_01 {
+            font-size: 12px;
+           
+        }
+        #lbl_nome_heaad {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        #option1,#option2,#option3,#option4,#option5,#option6,#option7,
+    #select1, #select2, #select3, #select4,#Ver_pgs,#Cad_pgs,#P_Oração {
+        width: 220px;
+        background-color: rgba(79, 87, 79, 0);
+        color: rgb(57, 57, 58);
+        padding: 7px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        border: 0cap;
+        border-bottom: 2px solid rgb(57, 57, 58);
+    }
+    #option1:hover,#option2:hover,#option3:hover,#option4:hover,#option5:hover,#option6:hover,#option7:hover,
+    #select1:hover, #select2:hover, #select3:hover, #select4:hover,#Ver_pgs:hover,#Cad_pgs:hover,#P_Oração:hover {
+        background-color: aqua;
+        color: brown;
+    }
+    .my-custom-swal {
+        width: 300px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(58, 57, 57);
+    }
+    #files {
+        display: none;
+    }
+    #myProgress {
+            width: 10%;
+            background-color:rgb(122, 120, 120);
+            display: none;
+            border-radius: 7px;
+            margin-left: 20%;
+            margin-bottom: 10px;
+        }   
+        #myBar {
+            width: 1%;
+            /* Começa com 1% */
+            height: 20px;
+            background-color:rgb(117, 233, 9);
+            text-align: center;
+            /* Centraliza horizontalmente */
+            line-height: 15px;
+            /* Centraliza verticalmente */
+            color: rgb(71, 69, 69);
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        #div_geral, #div_inicial {
+            display: none;
+        }
+        #div_inicial {
+            margin: 0 auto;
+            width: 80%;
+            margin-top: 50%;
+            text-align: center;
+        }
+        #btn_inicial {
+            width: 90%;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 3px solid rgb(56, 56, 56);
+            border-radius: 20px;
+            color: rgb(49, 48, 48);
+
+        }
+        #btn_inicial:hover {
+            background-color: rgb(4, 110, 9);
+            color: rgb(251, 255, 252);
+        }
+        #p_inicial {
+            font-size: 15px;
+            color: rgb(61, 62, 63);
+        }
+        #i_MSM_heaad {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="div_inicial">
+        <p id="p_inicial">Você está acessando atravéz de um aparelho movel. Para uma melhor experiência utilize Pc desktop ou Notebook</p>
+        <br><br>
+        <button id="btn_inicial" onclick="Inicial()">Start Click</button>
+    </div>
+    <input id="files" type="file" > 
+    <div id="div_geral" >
+        <div id="div_heaad" >
+            <div id="myProgress">
+            <div id="myBar">10%</div>
+        </div>
+            <div id="div_imagem_login" >
+                <img id="img_heaad" src="../src/Profile-PNG-Images.png" alt="" onclick="Ver_imagem_heaad()">
+                <label id="lbl_nome_heaad" for="">Nome</label>
+            </div>
+            <button id="btn_heaad_01" onclick="MSM_heaad()" >MSM <i id="i_MSM_heaad" class="fa-solid fa-comment-dots"></i></button>
+            <button id="btn_heaad_02" onclick=" toggleFullScreen()">Tela <i class="fa-solid fa-desktop"></i></button>
+            <button id="btn_heaad_03" onclick="Menu()">Menu <i id="i_btn_heaad" class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+
+    <script>
+         
+        // iniciar
+
+        var inicial =  sessionStorage.getItem('Aparelho')
+        if(!inicial | inicial == '') {
+            document.getElementById('div_inicial').style.display= 'none'
+             document.getElementById('div_geral').style.display= 'block'
+
+        } else {
+            document.getElementById('div_inicial').style.display= 'block'
+            document.getElementById('div_geral').style.display= 'none'
+        }
+        function Inicial(){
+             document.getElementById('div_inicial').style.display= 'none'
+            document.getElementById('div_geral').style.display= 'block'
+            toggleFullScreen('click')
+        }
+
+        
+    </script>
+
+    
+
+
+
+  <script>
+    //Iniciação da heaad
+         var nome= sessionStorage.getItem('nome_session');
+         var email = sessionStorage.getItem('email_session');
+         var imagem = sessionStorage.getItem('imagem_session');
+         var senha = sessionStorage.getItem('senha_session');
+
+        var text= nome.split(' ')
+        var Nome_user = text['0']
+        var Sob_nome=  text['1']
+        var nome_heaad = document.getElementById('lbl_nome_heaad');
+        nome_heaad.innerHTML= `Olá, ${Nome_user}`
+       
+        document.getElementById('img_heaad').src= imagem
+        
+        function Ver_imagem_heaad() {
+
+          window.swal(nome,'',imagem, {customClass: {
+      popup: 'my-custom' // Aplica a classe CSS personalizada
+    }})
+          
+        }
+
+       
+
+  </script>
+
+<script>
+setInterval(function(){
+    var nome = sessionStorage.getItem('nome_session');
+var email = sessionStorage.getItem('email_session');
+var imagem = sessionStorage.getItem('imagem_session');
+var senha = sessionStorage.getItem('senha_session');
+
+const firebaseConfigure = {
+apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
+authDomain: "pg-iasd-central.firebaseapp.com",
+projectId: "pg-iasd-central",
+storageBucket: "pg-iasd-central.firebasestorage.app",
+messagingSenderId: "186076376922",
+appId: "1:186076376922:web:ada66fdb6f7a92d1500d63",
+measurementId: "G-4LZY64YZ33"
+};
+firebase.initializeApp(firebaseConfigure);
+
+
+var  dbr = firebase.firestore()
+dbr.collection('Administradores').doc(email).get().then(function(doc) {
+if(doc.exists){      
+   var user = doc.data();
+
+var nome_ADM = user.Nome 
+var email_ADM= user.Email
+var senha_ADM= user.Senha
+var imagem_ADM= user.Foto
+var data_ADM= user.Data;
+
+sessionStorage.setItem('Admim_', 'Administrador');
+
+
+
+} else{
+   sessionStorage.setItem('Admim_', '')
+
+
+}
+})
+
+
+},1000)
+    
+var Admi = sessionStorage.getItem('Admim_')
+    //Menu Swal.fire
+    // btn do 1 ao 7 confg.
+    document.getElementById('btn_heaad_03').addEventListener('click', function () {
+        const Admi = sessionStorage.getItem('Admim_')
+        
+        if(!Admi| Admi == '') {
+           
+        Swal.fire({
+            title: 'Menu',
+            
+            html: `
+               <br>
+                <button id="option1" style="margin: 5px;">Perfil <i class="fa-solid fa-user"></i></button><br>
+                <button id="option2" style="margin: 5px;"> PG - Locais <i class="fa-solid fa-house"></i></button><br>
+                <button id="option3" style="margin: 5px;">Pedido de cadastro  <i class="fa-solid fa-house"></i></button><br>
+                 <button id="option4" style="margin: 5px;">Pedido de Oração <i class="fa-solid fa-hands-holding-child"></i></button><br>
+            `,
+            showCancelButton: true,
+            showConfirmButton: false,
+            customClass: {
+      popup: 'my-custom-swal' // Aplica a classe CSS personalizada
+    }
+});
+} else {
+   
+    Swal.fire({
+            title: 'Menu',
+            
+            html: `
+               <br>
+                <button id="option1" style="margin: 5px;">Perfil <i class="fa-solid fa-user"></i></button><br>
+                <button id="option2" style="margin: 5px;"> PG - Locais <i class="fa-solid fa-house"></i></button><br>
+                <button id="option3" style="margin: 5px;">Pedido de cadastro  <i class="fa-solid fa-house"></i></button><br>
+                 <button id="option4" style="margin: 5px;">Pedido de Oração <i class="fa-solid fa-hands-holding-child"></i></button><br>
+                  <button id="option5" style="margin: 5px;" onclick('Admim()')>Administração <i class="fa-solid fa-user"></i></button><br>
+                 
+                 
+            `,
+            showCancelButton: true,
+            showConfirmButton: false,
+            customClass: {
+      popup: 'my-custom-swal' // Aplica a classe CSS personalizada
+    }
+});
+
+}
+    
+        // Adiciona eventos aos botões dentro do alerta
+        document.getElementById('option1').addEventListener('click', function() { 
+            Swal.fire({
+                title: 'Perfil',
+            html: `
+               <br>
+                <button id="select1" style="margin: 5px;">Foto <i class="fa-solid fa-image"></i></button><br>
+                <button id="select2" style="margin: 5px;">Nome  <i class="fa-solid fa-pen-to-square"></i></button><br>
+                <button id="select3" style="margin: 5px;">Telelefone <i class="fa-solid fa-phone-volume"></i></button><br>
+                <button id="select4" style="margin: 5px;">Opção 4</button><br>
+            `,
+            showCancelButton: true,
+            showConfirmButton: false,
+            customClass: {
+      popup: 'my-custom-swal' // Aplica a classe CSS personalizada
+    }
+        })
+        document.getElementById('select1').addEventListener('click', function() {
+            
+
+            var Nome_user= sessionStorage.getItem('nome_session');
+           // var imagem =  sessionStorage.getItem('imagem_session');
+            var Email_user=  sessionStorage.getItem('email_session');
+            var Senha_user= sessionStorage.getItem('senha_session');
+            var Conf_senha_user=  sessionStorage.getItem('senha_session');
+      
+
+      if(!Nome_user | Nome_user== '' | !Email_user | Email_user== ''){
+
+        window.Swal.fire('Atenção!', 'Preencha os campos Nome e Email para continuar!','')
+      } else {
+
+       
+        const firebaseConfi = {
+       apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
+       authDomain: "pg-iasd-central.firebaseapp.com",
+       projectId: "pg-iasd-central",
+       storageBucket: "pg-iasd-central.firebasestorage.app",
+       messagingSenderId: "186076376922",
+       appId: "1:186076376922:web:ada66fdb6f7a92d1500d63",
+       measurementId: "G-4LZY64YZ33"
+     };
+      firebase.initializeApp(firebaseConfi);
+      var db = firebase.firestore();
+         
+        document.getElementById('files').click()
+    
+        var uploader = document.getElementById('uploader ');
+         var fileButton = document.getElementById('files');
+         
+         fileButton.addEventListener('change', function(e) {
+             var file = e.target.files[0];
+             var storageRef = firebase.storage().ref(`Foto_user_/${Email_user}`  );
+             var task = storageRef.put(file);
+             task.on('state_changed', function progress(snapshot) {
+         
+                 var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                 uploader.value = percentage;
+         
+             }, function error(err) {
+         
+             }, function complete() {
+
+        storageRef.getDownloadURL().then(function(url_imagem) {
+         
+            document.getElementById('myProgress').style.display = 'block'
+            Swal.fire('Aguarde...','','success')
+            var i = 0;
+
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myBar");
+                var width = 1;
+                var id = setInterval(frame, 30);
+
+                function frame() {
+                    if (width >= 70) {
+                        clearInterval(id);
+                        i = 0;                     
+                        window.sessionStorage.setItem('imagem_session', url_imagem);
+                        document.getElementById('img_heaad').src= url_imagem   
+                        document.getElementById('myProgress').style.display = 'none' 
+
+                        var db =firebase.firestore()
+                       db.collection(`Users_`).doc(`${Email_user}`).set({
+                           
+                            Foto:  url_imagem,
+                            Nome: Nome_user,
+                            Senha: Senha_user,
+                            Email: Email_user,
+                            Tel:'',
+                       })        
+                       
+                       
+                          setTimeout(function(){
+                              window.location.reload()
+                          },2000)
+                        
+                    } else {
+                        width++;
+                        elem.style.width = width + "%";
+                        elem.innerHTML = width + "%"; // Atualiza o texto do rótulo
+                    }
+                }
+            }
+
+        })
+    })
+})
+      }
+    
+    
+   // function Ver_img_cad() {
+        
+    //    var imagem_= window.localStorage.getItem('foto_user');
+        
+  //      window.swal('',``,imagem_)
+ //    }
+    
+
+        })
+        document.getElementById('select2').addEventListener('click', () => Swal.fire('Você escolheu select 2!'));
+        document.getElementById('select3').addEventListener('click', () => Swal.fire('Você escolheu select 3!'));
+        document.getElementById('select4').addEventListener('click', () => Swal.fire('Você escolheu select 4!'));
+    });
+        document.getElementById('option2').addEventListener('click', function(){
+            Swal.fire({
+                title: 'Locais de Pequenos Grupos',
+            html: `
+               <br>
+                <button id="Ver_pgs" style="margin: 5px;">Ver locais <i class="fa-solid fa-eye-low-vision"></i></button><br>
+            `,
+            showCancelButton: true,
+            showConfirmButton: false,
+            customClass: {
+      popup: 'my-custom-swal' // Aplica a classe CSS personalizada
+    }
+        })
+        document.getElementById('Ver_pgs').addEventListener('click', () => 
+        Swal.fire('Locais dos PGs','',''));
+    });
+        document.getElementById('option3').addEventListener('click', function() {
+            Swal.fire({
+                title: 'Cadastrar local para Pequeno Grupo',
+            html: `
+               <br>
+                <button id="Cad_pgs" style="margin: 5px;">Sim, cadastrar <i class="fa-solid fa-house"></i></button><br>
+            `,
+            showCancelButton: true,
+            showConfirmButton: false,
+            customClass: {
+      popup: 'my-custom-swal' // Aplica a classe CSS personalizada
+    }      
+        })
+        document.getElementById('Cad_pgs').addEventListener('click', () => 
+        Swal.fire('Cadastre seu local','',''));
+
+            });
+            document.getElementById('option4').addEventListener('click', function() {
+            Swal.fire({
+                title: 'Faça seu pedido de Oração',
+            html: `
+               <br>
+                <button id="P_Oração" style="margin: 5px;">Sim, Quero Oração <i class="fa-solid fa-hands-holding-child"></i> </button><br>
+            `,
+            showCancelButton: true,
+            showConfirmButton: false,
+            customClass: {
+      popup: 'my-custom-swal' // Aplica a classe CSS personalizada
+    } 
+        })
+        document.getElementById('P_Oração').addEventListener('click', () => 
+        alert('Oração Pedida!'));
+
+            });
+      //confg.
+        document.getElementById('option5').addEventListener('click', function(){
+            Admim('click')
+        });
+        document.getElementById('option6').addEventListener('click', () => Swal.fire('Em breve!'));
+        document.getElementById('option7').addEventListener('click', () => Swal.fire('Em breve!'));
+    });
+</script>
+
+
+<script>
+    function Admim(){
+      Swal.fire({
+                title: 'Fuções de administrador',
+            html: `
+               <br>
+                <button id="select1" style="margin: 5px;">Foto <i class="fa-solid fa-image"></i></button><br>
+                <button id="select2" style="margin: 5px;">Nome  <i class="fa-solid fa-pen-to-square"></i></button><br>
+                <button id="select3" style="margin: 5px;">Telelefone <i class="fa-solid fa-phone-volume"></i></button><br>
+                <button id="select4" style="margin: 5px;">Opção 4</button><br>
+            `,
+            showCancelButton: true,
+            showConfirmButton: false,
+            customClass: {
+      popup: 'my-custom-swal' // Aplica a classe CSS personalizada
+    }
+        })
+        document.getElementById('select1').addEventListener('click', function() {
+            alert('Deu certo"')
+        })
+    }
+</script>
+<script>
+
+    //Data e Hora
+
+
+    setInterval(function() {
+    
+const newDate = new Date()
+var dia = String(newDate.getDate()).padStart(2, '0');
+var mes = String(newDate.getMonth() + 1).padStart(2, '0');
+var ano = String(newDate.getFullYear()).padStart(2, '0')
+var data = `${dia}/${mes}/${ano}`
+const now = new Date();
+const hours = now.getHours().toString().padStart(2, '0');
+const minutes = now.getMinutes().toString().padStart(2, '0');
+const seconds = now.getSeconds().toString().padStart(2, '0');
+const timeString = `${hours}:${minutes}:${seconds}`;
+// const lbl_data = document.getElementById('lbl-data');
+
+// lbl_data.innerHTML = `${data}`
+
+sessionStorage.setItem('data', data)
+sessionStorage.setItem('hora', timeString)
+
+//var Data = document.getElementById('lbl_data_head')
+//Data.innerHTML= data;
+
+
+
+}, 1000)
+
+
+function ver_data_hora(){
+  var data= sessionStorage.getItem('data')
+  var hora= sessionStorage.getItem('hora')
+    Swal.fire('Hora e Data',`Hora: ${hora}<br> Data: ${data}`)
+}
+
+</script>
+
+<script>
+    // Tela cheia
+    function toggleFullScreen() {
+        if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+            (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+            if (document.documentElement.requestFullScreen) {
+                document.documentElement.requestFullScreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullScreen) {
+                document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+        } else {
+            if (document.cancelFullScreen) {
+                document.cancelFullScreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+           }
+      }
+    }
+</script>
+
+
+  
+
+
+   
+</body>
+</html>
