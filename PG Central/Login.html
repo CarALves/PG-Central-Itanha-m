@@ -25,7 +25,7 @@
         #div_geral {
             width: 28%;
             margin: 0 auto;
-            min-width: 430px;
+            min-width: 400px;
             background-color: rgba(119, 4, 119, 0);
             padding: 20px;
             margin-top: 2%;
@@ -644,11 +644,13 @@
          document.getElementById('p_cad_04').style.display='block'
 
       };
-    
+      var data= sessionStorage.getItem('data')
+      var hora= sessionStorage.getItem('hora')
     var Email_user=  document.getElementById('input_email_cad').value;
     var Senha_user=  document.getElementById('input_senha_cad').value;
     var Nome_user=  document.getElementById('input_nome_cad').value;
-    var imagem = window.localStorage.getItem('foto_user');
+    var imagem = window.sessionStorage.getItem('foto_user');
+
     if(!imagem | imagem == '') {
         var imagem = 'src/Profile-PNG-Images.png'
     }
@@ -686,6 +688,8 @@
              Senha: Senha_user,
              Email: Email_user,
              Tel:'',
+             Data: data,
+             Hora: hora,
         })
         setTimeout(function(){
           
@@ -800,10 +804,49 @@
     
     function Ver_img_cad() {
         
-        var imagem_= window.localStorage.getItem('foto_user');
+        var imagem_= window.sessionStorage.getItem('foto_user');
         
         window.swal('',``,imagem_)
      }
+    </script>
+    <script>
+
+        //Data e Hora
+    
+    
+        setInterval(function() {
+        
+    const newDate = new Date()
+    var dia = String(newDate.getDate()).padStart(2, '0');
+    var mes = String(newDate.getMonth() + 1).padStart(2, '0');
+    var ano = String(newDate.getFullYear()).padStart(2, '0')
+    var data = `${dia}/${mes}/${ano}`
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    // const lbl_data = document.getElementById('lbl-data');
+    
+    // lbl_data.innerHTML = `${data}`
+    
+    sessionStorage.setItem('data', data)
+    sessionStorage.setItem('hora', timeString)
+    
+    //var Data = document.getElementById('lbl_data_head')
+    //Data.innerHTML= data;
+    
+    
+    
+    }, 1000)
+    
+    
+    function ver_data_hora(){
+      var data= sessionStorage.getItem('data')
+      var hora= sessionStorage.getItem('hora')
+        Swal.fire('Hora e Data',`Hora: ${hora}<br> Data: ${data}`)
+    }
+    
     </script>
 
     

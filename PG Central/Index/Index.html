@@ -90,7 +90,7 @@
             font-weight: bold;
         }
         #option1,#option2,#option3,#option4,#option5,#option6,#option7,
-    #select1, #select2, #select3, #select4,#Ver_pgs,#Cad_pgs,#P_Oração {
+    #select1, #select2, #select3, #select4,#Ver_pgs,#Cad_pgs,#P_Oração, #select5, #select6, #select7, #select8 {
         width: 220px;
         background-color: rgba(79, 87, 79, 0);
         color: rgb(57, 57, 58);
@@ -103,8 +103,8 @@
         border-bottom: 2px solid rgb(57, 57, 58);
     }
     #option1:hover,#option2:hover,#option3:hover,#option4:hover,#option5:hover,#option6:hover,#option7:hover,
-    #select1:hover, #select2:hover, #select3:hover, #select4:hover,#Ver_pgs:hover,#Cad_pgs:hover,#P_Oração:hover {
-        background-color: aqua;
+    #select1:hover, #select2:hover, #select3:hover, #select4:hover,#Ver_pgs:hover,#Cad_pgs:hover,#P_Oração:hover, #select5:hover, #select6:hover, #select7:hover, #select8:hover {
+        background-color: rgb(192, 188, 188);
         color: brown;
     }
     .my-custom-swal {
@@ -168,7 +168,174 @@
         #i_MSM_heaad {
             font-size: 20px;
             cursor: pointer;
+        
         }
+        #div_admim_body {
+            width: 100%;
+            margin-top: 30px;
+        }
+        #admim_manualmente {
+            margin: 0 auto;
+            width: 50%;
+            min-width: 370px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            min-height: 10vh;
+            padding: 10px;
+            text-align: center;
+            margin-top: 50px;
+
+        }
+        #admim_manualmente label {
+            font-size: 12px;
+
+        }
+        #admim_manualmente input {
+            padding: 12px;
+            width: 90%;
+            min-width: 300px;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: aliceblue;
+            border: 2px solid brown;
+            margin-bottom: 40px;
+        }
+        #admim_manualmente button {
+            width: 200px;
+            padding: 10px;
+            border: 2px solid rgb(8, 85, 85);
+            cursor: pointer;
+            border-radius: 7px;
+            margin-bottom: 40px;
+
+        }
+        #admim_manualmente button:hover,  #admim_manualmente input:hover {
+            background-color: aqua;
+            color: brown;
+        }
+        #h3_lista_adm, #h3_admim_01 {
+            text-align: center;
+        }
+        #h3_admim_01 {
+            margin-top: 30px;
+            margin-right: 50px;
+            margin-bottom: 10px;
+        }
+        #div_Admim, #admim_manualmente, #lista01 {
+            display: none;
+        }
+        #menu_admin {
+            margin: 0 auto;
+            width: 90%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            padding: 16px;
+            background-color: rgb(131, 5, 93);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        #menu_admin button {
+            background-color: rgba(18, 18, 19, 0);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            padding: 7px;
+            margin-right: 30px;
+            border: 0cap;
+        }
+        #menu_admin button:hover {
+            color: rgb(3, 255, 24);
+        }
+        #lbl_sair_adm_manual, #lbl_sair_adm_list1 {
+            float: left;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+        #i_exit_adm_manual {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        #i_exit_adm_manual:hover, #lbl_sair_adm_manual:hover, #lbl_sair_adm_list1:hover {
+            color: rgb(148, 4, 124);
+
+        }
+        #ul_lista_01 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 95%;
+            min-width: 390px;
+            margin-top: 10px;
+            border-bottom: 2px solid rgb(94, 93, 93);
+            color: rgb(59, 59, 59);
+            margin-bottom: 10px;
+            
+        }
+        #ul_lista_01:hover,   #ul_lista_01 label:hover {
+            background-color: rgb(212, 209, 209);
+            color: brown;
+            border-radius: 10px;
+        }
+        #lista_admim_01 {
+            margin: 0 auto;
+            width: 70%;
+            min-width: 390px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 10px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            margin-top: 20px;
+            border-radius: 10px;
+            max-height: 65vh;
+            overflow-y: auto;
+           
+        }
+        #lista01 {
+          
+            margin: 0 auto;
+            width: 70%;
+            min-width: 390px;
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            margin-top: 20px;
+            border-radius: 10px;
+            max-height: 85vh;
+         
+        } 
+        #ul_img_ADM_1 {
+            width: 30px;
+            height: 30px;
+            border: 2px solid brown;
+            cursor: pointer;
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+       #label_ADM_1, #label_ADM_2 {
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: rgb(70, 70, 70);
+        }
+        #Excluir_ADM_1 {
+            border: 0cap;
+            background-color: rgba(240, 248, 255, 0);
+            color: rgb(61, 60, 60);
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        #Excluir_ADM_1:hover {
+            color: red;
+        }
+  
     </style>
 </head>
 <body>
@@ -191,7 +358,250 @@
             <button id="btn_heaad_02" onclick=" toggleFullScreen()">Tela <i class="fa-solid fa-desktop"></i></button>
             <button id="btn_heaad_03" onclick="Menu()">Menu <i id="i_btn_heaad" class="fa-solid fa-bars"></i></button>
         </div>
+        <div id="div_Admim">
+            <div id="div_admim_body">
+                
+               
+                <div id="menu_admin">
+                    <button onclick="Escoler_novo_admin()">Novo Admin <i class="fa-solid fa-user"></i></button>
+                    <button onclick="Ver_lista_admin()">Ver Admin <i class="fa-solid fa-eye-low-vision"></i></button>
+                    <button onclick="ver_Membros_admin()">Ver Membros <i class="fa-solid fa-eye-low-vision"></i></button>
+                </div>
+                <div id="lista01">
+                    <label id="lbl_sair_adm_list1" for="" onclick="sair_adm_list1()"><i id="i_exit_adm_manual" class="fa-solid fa-delete-left"></i>  Sair </label> 
+                    <h3 id="h3_lista_adm"> Administradores</h3>
+                <div id="lista_admim_01">
+                </div>
+                </div>
+                <div id="lista_members_admim">
+
+                </div>
+                <div id="admim_manualmente">
+                    <label id="lbl_sair_adm_manual" for="" onclick="Sair_Admin_manual()"><i id="i_exit_adm_manual" class="fa-solid fa-delete-left"></i> Sair</label>
+                    <h3 id="h3_admim_01"> Novo Administrador</h3>
+                    <label for="">Email do novo administrador<br>
+                    <input type="email" id="input_Email_novo_admin" placeholder="Digite Email...">
+                    </label><br>
+
+                  <div id="btn_novo_admim_01">
+                    <button onclick="novo_admin()">NOVO ADMIN</button>
+                  </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script>
+        function Escoler_novo_admin() {
+            document.getElementById('admim_manualmente').style.display= 'block'
+            document.getElementById('div_Admim').style.display= 'block'
+              document.getElementById('lista01').style.display= 'none'
+        };
+        function Sair_Admin_manual() {
+              document.getElementById('admim_manualmente').style.display= 'none'
+           
+
+        };
+        function sair_adm_list1() {
+             document.getElementById('lista01').style.display= 'none'
+
+        }
+     
+
+        // lista de admin
+
+         function Ver_lista_admin() {
+
+        document.getElementById('admim_manualmente').style.display= 'none'
+        document.getElementById('lista01').style.display= 'block'
+  
+       var ADM_email = sessionStorage.getItem('ADM_email')
+       var ADM_imagem = sessionStorage.getItem('ADM_imagem')
+       var ADM_nome = sessionStorage.getItem('ADM_nome')
+       var ADM_data = sessionStorage.getItem('ADM_data')
+       var ADM_hora = sessionStorage.getItem('ADM_hora')
+     
+        var  userListDiv = document.getElementById('lista_admim_01');
+       
+       userListDiv.innerHTML=''
+   
+        const firebaseConfigurar = {
+        apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
+        authDomain: "pg-iasd-central.firebaseapp.com",
+        projectId: "pg-iasd-central",
+        storageBucket: "pg-iasd-central.firebasestorage.app",
+        messagingSenderId: "186076376922",
+        appId: "1:186076376922:web:ada66fdb6f7a92d1500d63",
+        measurementId: "G-4LZY64YZ33"
+      };
+                  // Initialize Firebase
+              firebase.initializeApp(firebaseConfigurar);
+              const dbc = firebase.firestore();
+         const produtosRef = dbc.collection('Administradores');
+
+          produtosRef.get().then((querySnapshot) => {
+          querySnapshot.forEach(doc => {
+
+        const user = doc.data();
+
+        var button_2 = document.createElement('button');
+      //  var button = document.createElement('button');
+        var label = document.createElement('label');
+        var label_2 = document.createElement('label');
+        var imagem_ul_ADM1 = document.createElement('img');
+        var li = document.createElement("ul");
+        var br= document.createElement("br");
+
+        imagem_ul_ADM1.src = ` ${user.Foto}`
+        label.textContent = `${user.Nome}, ${user.Email} `
+       // label_2.textContent = `${user.Email} `
+        imagem_ul_ADM1.id = 'ul_img_ADM_1'
+       // button.id = 'ul_excluir_ADM_1'
+        button_2.id = 'Excluir_ADM_1'
+        label.id = 'label_ADM_1'
+        //label_2.id = 'label_ADM_2'
+        button_2.className="fa-solid fa-eye"
+     //   button.textContent = ``;
+        button_2.textContent = ''
+        li.id = 'ul_lista_01'
+      
+        li.appendChild(imagem_ul_ADM1);
+        li.appendChild(label);
+        li.appendChild(br);
+        li.appendChild(br);
+      //  li.appendChild(label_2);
+        li.appendChild(button_2);
+      //  li.appendChild(button);
+      
+        userListDiv.appendChild(li);
+        
+      button_2.addEventListener("click", () => {
+       
+        var text= user.Nome.split(' ')
+        var Nome_user = text['0']
+        var Sob_nome=  text['1']
+        Swal.fire({
+                title: `Admin = ${Nome_user}`,
+            html: `
+               <br>
+                <button id="select1" style="margin: 5px;">Mensagem  <i class="fa-solid fa-comment-dots"></i></button><br>
+                <button id="select2" style="margin: 5px;">Contato <i class="fa-solid fa-phone-volume"></i></button><br>
+                <button id="select3" style="margin: 5px;">Excluir <i class="fa-solid fa-trash"></i> </button><br>
+                <button id="select4" style="margin: 5px;">Opção 4</button><br>
+            `,
+            showCancelButton: true,
+            showConfirmButton: false,
+            customClass: {
+      popup: 'my-custom-swal' // Aplica a classe CSS personalizada
+    }
+        })
+        document.getElementById('select1').addEventListener('click', function() {
+            alert('Mensagem')
+            
+
+              });
+              document.getElementById('select2').addEventListener('click', function() {
+                Swal.fire('Contatos!',`Email: ${user.Email}<br>Tel: ${user.Tel}`,'')
+            
+
+              });
+              document.getElementById('select3').addEventListener('click', function() {
+                const db= firebase.firestore();
+                db.collection('Administradores').doc(doc.id).delete();
+                setTimeout(function(){
+                Swal.fire('Sucesso!','Administrador(a) removido!','success')
+                Ver_lista_admin('click')
+            },1500) 
+
+
+              });
+              document.getElementById('select4').addEventListener('click', function() {
+            alert('Breve')
+            
+
+              });
+          
+
+            })
+            imagem_ul_ADM1.addEventListener('click', function(){
+                window.swal('','',user.Foto)
+              })
+
+        })
+    })
+    }
+    </script>
+    <script>
+
+
+        //novo admim
+
+        function novo_admin() {
+
+        var Email_novo_admim = document.getElementById('input_Email_novo_admin').value;
+        var data= sessionStorage.getItem('data')
+        var hora= sessionStorage.getItem('hora')
+
+        if(!Email_novo_admim | Email_novo_admim == '') {
+
+            Swal.fire('Preencha o campo "Email"!','','error')
+        } else{
+
+        const firebaseConfigure = {
+        apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
+        authDomain: "pg-iasd-central.firebaseapp.com",
+        projectId: "pg-iasd-central",
+        storageBucket: "pg-iasd-central.firebasestorage.app",
+        messagingSenderId: "186076376922",
+        appId: "1:186076376922:web:ada66fdb6f7a92d1500d63",
+        measurementId: "G-4LZY64YZ33"
+      };
+      firebase.initializeApp(firebaseConfigure);
+
+          var  dbr = firebase.firestore()
+        dbr.collection('Users_').doc(Email_novo_admim).get().then(function(doc) {
+            if(doc.exists) {      
+                var user = doc.data();
+        
+          var nome= user.Nome ;
+          var email= user.Email;
+          var senha= user.Senha;
+          var imagem= user.Foto;
+          var tel= user.Tel;
+
+          setTimeout(function(){
+
+          var db =firebase.firestore()
+        db.collection(`Administradores`).doc(`${email}`).set({
+            
+                 Nome: nome,
+                 Email: email,
+                 Senha: senha,
+                 Foto: imagem,
+                 Tel: tel,
+                 Data: data,
+                 Hata:hora,
+           })
+           
+   
+        },1000)
+
+
+          window.swal('Sucesso!',`Nome: ${nome}\nEmail: ${email}\nData: ${data}\nHora: ${hora}`,imagem)
+          setTimeout(function(){
+            document.getElementById('input_Email_novo_admin').value= ''
+            var Email_novo_admim = ''
+            Ver_lista_admin('Click') 
+
+          },1500)
+            } else {
+                Swal.fire('Membro não encontrado!','','error')
+            }
+            })
+        
+    }
+}
+    
+    </script>
 
     <script>
          
@@ -212,7 +622,7 @@
             toggleFullScreen('click')
         }
 
-        
+    
     </script>
 
     
@@ -220,6 +630,7 @@
 
 
   <script>
+
     //Iniciação da heaad
          var nome= sessionStorage.getItem('nome_session');
          var email = sessionStorage.getItem('email_session');
@@ -275,13 +686,24 @@ var email_ADM= user.Email
 var senha_ADM= user.Senha
 var imagem_ADM= user.Foto
 var data_ADM= user.Data;
+var hora_ADM= user.Hata;
 
-sessionStorage.setItem('Admim_', 'Administrador');
-
+//sessionStorage.setItem('Admim_', 'Administrador');
+sessionStorage.setItem('ADM_email', email_ADM )
+sessionStorage.setItem('ADM_imagem', imagem_ADM )
+sessionStorage.setItem('ADM_nome', nome_ADM )
+sessionStorage.setItem('ADM_data', data_ADM )
+sessionStorage.setItem('ADM_hora', hora_ADM )
 
 
 } else{
-   sessionStorage.setItem('Admim_', '')
+   //sessionStorage.setItem('Admim_', '')
+sessionStorage.setItem('ADM_email', '')
+sessionStorage.setItem('ADM_imagem', '' )
+sessionStorage.setItem('ADM_nome', '' )
+sessionStorage.setItem('ADM_data', '' )
+sessionStorage.setItem('ADM_hora', '' )
+
 
 
 }
@@ -294,7 +716,7 @@ var Admi = sessionStorage.getItem('Admim_')
     //Menu Swal.fire
     // btn do 1 ao 7 confg.
     document.getElementById('btn_heaad_03').addEventListener('click', function () {
-        const Admi = sessionStorage.getItem('Admim_')
+        const Admi = sessionStorage.getItem('ADM_email')
         
         if(!Admi| Admi == '') {
            
@@ -325,7 +747,7 @@ var Admi = sessionStorage.getItem('Admim_')
                 <button id="option2" style="margin: 5px;"> PG - Locais <i class="fa-solid fa-house"></i></button><br>
                 <button id="option3" style="margin: 5px;">Pedido de cadastro  <i class="fa-solid fa-house"></i></button><br>
                  <button id="option4" style="margin: 5px;">Pedido de Oração <i class="fa-solid fa-hands-holding-child"></i></button><br>
-                  <button id="option5" style="margin: 5px;" onclick('Admim()')>Administração <i class="fa-solid fa-user"></i></button><br>
+                  <button id="option5" style="margin: 5px;" onclick('Admim()')>Administração <i class="fa-solid fa-layer-group"></i> </button><br>
                  
                  
             `,
@@ -362,7 +784,10 @@ var Admi = sessionStorage.getItem('Admim_')
            // var imagem =  sessionStorage.getItem('imagem_session');
             var Email_user=  sessionStorage.getItem('email_session');
             var Senha_user= sessionStorage.getItem('senha_session');
+            var tel= sessionStorage.getItem('tel_session');
             var Conf_senha_user=  sessionStorage.getItem('senha_session');
+            var data= sessionStorage.getItem('data')
+            var hora= sessionStorage.getItem('hora')
       
 
       if(!Nome_user | Nome_user== '' | !Email_user | Email_user== ''){
@@ -428,7 +853,9 @@ var Admi = sessionStorage.getItem('Admim_')
                             Nome: Nome_user,
                             Senha: Senha_user,
                             Email: Email_user,
-                            Tel:'',
+                            Tel: tel,
+                            Data: data,
+                            Hora: hora,
                        })        
                        
                        
@@ -529,10 +956,10 @@ var Admi = sessionStorage.getItem('Admim_')
                 title: 'Fuções de administrador',
             html: `
                <br>
-                <button id="select1" style="margin: 5px;">Foto <i class="fa-solid fa-image"></i></button><br>
-                <button id="select2" style="margin: 5px;">Nome  <i class="fa-solid fa-pen-to-square"></i></button><br>
-                <button id="select3" style="margin: 5px;">Telelefone <i class="fa-solid fa-phone-volume"></i></button><br>
-                <button id="select4" style="margin: 5px;">Opção 4</button><br>
+                <button id="select5" style="margin: 5px;">Administradores <i class="fa-solid fa-users"></i></button><br>
+                <button id="select6" style="margin: 5px;">Pedidos de PGs <i class="fa-solid fa-house"></i></button><br>
+                <button id="select7" style="margin: 5px;">Cadastrar Novo PG <i class="fa-solid fa-house"></i></button><br>
+                <button id="select8" style="margin: 5px;">Membros do APP <i class="fa-solid fa-users"></i> </button><br>
             `,
             showCancelButton: true,
             showConfirmButton: false,
@@ -540,8 +967,9 @@ var Admi = sessionStorage.getItem('Admim_')
       popup: 'my-custom-swal' // Aplica a classe CSS personalizada
     }
         })
-        document.getElementById('select1').addEventListener('click', function() {
-            alert('Deu certo"')
+        document.getElementById('select5').addEventListener('click', function() {
+            document.getElementById('div_Admim').style.display= 'block'
+            Swal.fire('Edite!','','')
         })
     }
 </script>
