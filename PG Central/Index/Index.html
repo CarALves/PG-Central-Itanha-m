@@ -114,6 +114,9 @@
         font-family: Arial, Helvetica, sans-serif;
         color: rgb(58, 57, 57);
     }
+    .my-custom-swal h2 {
+        font-size: 22px;
+    }
     #files {
         display: none;
     }
@@ -337,6 +340,24 @@
         #Excluir_ADM_1:hover {
             color: red;
         }
+        .my-custom-swal_ {
+            width: 640px;
+            min-width: 400px;
+            border-radius: 15px;
+            
+
+        }
+        .my-custom-swal_ input {
+           border: 2px solid rgb(122, 121, 121);
+            cursor: pointer;
+        }
+        .my-custom-swal_ h2 {
+            font-size: 22px;
+        }
+        .my-custom-swal_ input:hover {
+            background-color: rgb(93, 153, 153);
+            color: brown;
+        }
   
     </style>
 </head>
@@ -396,6 +417,7 @@
             </div>
         </div>
     </div>
+    
     <script>
         // ADM Membros
 
@@ -458,6 +480,10 @@
       //  li.appendChild(button);
       
         userListDiv2.appendChild(li);
+
+        imagem_ul_ADM1.addEventListener('click', function(){
+            window.swal('','',user.Foto)
+        })
         
       button_2.addEventListener("click", () => {
         var text= user.Nome.split(' ')
@@ -637,7 +663,7 @@ setTimeout(function(){
         var Nome_user = text['0']
         var Sob_nome=  text['1']
         Swal.fire({
-                title: `Adm_${Nome_user}`,
+         title: `Adm_${Nome_user}`,
             html: `
                <br>
                 <button id="select1" style="margin: 5px;">Mensagem <i class="fa-solid fa-comment-dots"></i></button><br>
@@ -660,6 +686,7 @@ setTimeout(function(){
               document.getElementById('select3').addEventListener('click', function() {
                 const db= firebase.firestore();
                 db.collection('Administradores').doc(doc.id).delete();
+              
                 setTimeout(function(){
                 Swal.fire('Sucesso!','Administrador(a) removido!','success')
                 Ver_lista_admin('click')
@@ -784,52 +811,52 @@ setTimeout(function(){
 }
   </script>
 <script>
-setInterval(function(){
-    var nome = sessionStorage.getItem('nome_session');
-var email = sessionStorage.getItem('email_session');
-var imagem = sessionStorage.getItem('imagem_session');
-var senha = sessionStorage.getItem('senha_session');
-
-const firebaseConfigure = {
-apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
-authDomain: "pg-iasd-central.firebaseapp.com",
-projectId: "pg-iasd-central",
-storageBucket: "pg-iasd-central.firebasestorage.app",
-messagingSenderId: "186076376922",
-appId: "1:186076376922:web:ada66fdb6f7a92d1500d63",
-measurementId: "G-4LZY64YZ33"
-};
-firebase.initializeApp(firebaseConfigure);
-
-var  dbr = firebase.firestore()
-dbr.collection('Administradores').doc(email).get().then(function(doc) {
-if(doc.exists){      
-   var user = doc.data();
-
-var nome_ADM = user.Nome 
-var email_ADM= user.Email
-var senha_ADM= user.Senha
-var imagem_ADM= user.Foto
-var data_ADM= user.Data;
-var hora_ADM= user.Hata;
-
-//sessionStorage.setItem('Admim_', 'Administrador');
-sessionStorage.setItem('ADM_email', email_ADM )
-sessionStorage.setItem('ADM_imagem', imagem_ADM )
-sessionStorage.setItem('ADM_nome', nome_ADM )
-sessionStorage.setItem('ADM_data', data_ADM )
-sessionStorage.setItem('ADM_hora', hora_ADM )
-
-} else{
-   //sessionStorage.setItem('Admim_', '')
-sessionStorage.setItem('ADM_email', '')
-sessionStorage.setItem('ADM_imagem', '' )
-sessionStorage.setItem('ADM_nome', '' )
-sessionStorage.setItem('ADM_data', '' )
-sessionStorage.setItem('ADM_hora', '' )
-}
-})
-},1000)
+     setInterval(function(){
+         var nome = sessionStorage.getItem('nome_session');
+     var email = sessionStorage.getItem('email_session');
+     var imagem = sessionStorage.getItem('imagem_session');
+     var senha = sessionStorage.getItem('senha_session');
+     
+     const firebaseConfigure = {
+     apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
+     authDomain: "pg-iasd-central.firebaseapp.com",
+     projectId: "pg-iasd-central",
+     storageBucket: "pg-iasd-central.firebasestorage.app",
+     messagingSenderId: "186076376922",
+     appId: "1:186076376922:web:ada66fdb6f7a92d1500d63",
+     measurementId: "G-4LZY64YZ33"
+     };
+     firebase.initializeApp(firebaseConfigure);
+     
+     var  dbr = firebase.firestore()
+     dbr.collection('Administradores').doc(email).get().then(function(doc) {
+     if(doc.exists){      
+        var user = doc.data();
+     
+     var nome_ADM = user.Nome 
+     var email_ADM= user.Email
+     var senha_ADM= user.Senha
+     var imagem_ADM= user.Foto
+     var data_ADM= user.Data;
+     var hora_ADM= user.Hata;
+     
+     //sessionStorage.setItem('Admim_', 'Administrador');
+     sessionStorage.setItem('ADM_email', email_ADM )
+     sessionStorage.setItem('ADM_imagem', imagem_ADM )
+     sessionStorage.setItem('ADM_nome', nome_ADM )
+     sessionStorage.setItem('ADM_data', data_ADM )
+     sessionStorage.setItem('ADM_hora', hora_ADM )
+     
+     } else{
+        //sessionStorage.setItem('Admim_', '')
+     sessionStorage.setItem('ADM_email', '')
+     sessionStorage.setItem('ADM_imagem', '' )
+     sessionStorage.setItem('ADM_nome', '' )
+     sessionStorage.setItem('ADM_data', '' )
+     sessionStorage.setItem('ADM_hora', '' )
+     }
+     })
+     },1000)
     
 var Admi = sessionStorage.getItem('Admim_')
     //Menu Swal.fire
@@ -881,7 +908,7 @@ var Admi = sessionStorage.getItem('Admim_')
                 <button id="select1" style="margin: 5px;">Foto <i class="fa-solid fa-image"></i></button><br>
                 <button id="select2" style="margin: 5px;">Nome  <i class="fa-solid fa-pen-to-square"></i></button><br>
                 <button id="select3" style="margin: 5px;">Telelefone <i class="fa-solid fa-phone-volume"></i></button><br>
-                <button id="select4" style="margin: 5px;">Opção 4</button><br>
+                
             `,
             showCancelButton: true,
             showConfirmButton: false,
@@ -982,21 +1009,93 @@ var Admi = sessionStorage.getItem('Admim_')
            //   var imagem_= sessionStorage.getItem('foto_user');       
           //      window.swal('',``,imagem_)
          //    }
-    
-
         })
-        document.getElementById('select2').addEventListener('click', () => Swal.fire('Você escolheu select 2!'));
 
+        /*     customClass: {
+                    popup: 'my-custom-swal_' // Aplica a classe CSS personalizada
+                },
+                */
+        document.getElementById('select2').addEventListener('click', function(){
+     
+       var data= sessionStorage.getItem('data')
+       var hora= sessionStorage.getItem('hora')
+       var Email_user=  sessionStorage.getItem('email_session');
+       
+            const firebaseConfig = {
+        apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
+        authDomain: "pg-iasd-central.firebaseapp.com",
+        projectId: "pg-iasd-central",
+        storageBucket: "pg-iasd-central.firebasestorage.app",
+        messagingSenderId: "186076376922",
+        appId: "1:186076376922:web:ada66fdb6f7a92d1500d63",
+        measurementId: "G-4LZY64YZ33"
+       };
+       firebase.initializeApp(firebaseConfig);
+       
+          var  dbr = firebase.firestore()
+        dbr.collection('Users_').doc(Email_user).get().then(function(doc) {
+            if(doc.exists) {      
+                var user = doc.data();
+        
+          var nome= user.Nome ;
+          var email= user.Email;
+          var senha= user.Senha;
+          var imagem= user.Foto;
+          var tel= user.Tel;
+          var Data= user.Data;
+          var Hora= user.Hora;
+            
+          setTimeout(function(){
+       
+     Swal.fire({
+         title: `Atual: ${nome}`,
+         html: `
+            
+             <input type="text" id="nome" class="swal2-input" placeholder="Digite novo nome...">
+         `,
+         focusConfirm: false,
+         showCancelButton: true,
+         customClass: {
+                    popup: 'my-custom-swal_' // Aplica a classe CSS personalizada
+                },
+         preConfirm: () => {
+         
+             const nome = Swal.getPopup().querySelector('#nome').value;
+             if (!nome | nome =='') {
+                 Swal.showValidationMessage(`Por favor, preencha  o campos nome`);
+             }
+             return {  nome: nome };
+         }
+     }).then((result) => {
+         if (result.isConfirmed) {
+            
+             var db =firebase.firestore()
+               db.collection(`Users_`).doc(`${email}`).set({
+     
+                  Foto: imagem,
+                  Nome: result.value.nome,
+                  Senha: senha,
+                  Email: email,
+                  Tel: tel,
+                  Data: data,
+                  Hora: hora,
+             })
+             Swal.fire(`Nome: ${result.value.nome}`,'','success');
+         }
+     })
 
+   },500)
+     } else {
 
-
-
+     }
+});
+        });
 
         document.getElementById('select3').addEventListener('click', function(){
 
-
-
-            var Email_user=  sessionStorage.getItem('email_session');
+       var data= sessionStorage.getItem('data')
+       var hora= sessionStorage.getItem('hora')
+       var Email_user=  sessionStorage.getItem('email_session');
 
             const firebaseConfigure = {
         apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
@@ -1021,23 +1120,53 @@ var Admi = sessionStorage.getItem('Admim_')
           var tel= user.Tel;
           var Data= user.Data;
           var Hora= user.Hora;
-             alert(email)
+            
           setTimeout(function(){
 
-          },1500)
-
+            Swal.fire({
+                title: `Atual: ${tel}`,
+                html: `
+                   
+                    <input type="tel" id="tel" class="swal2-input" placeholder="11 988887777">
+                `,
+                focusConfirm: false,
+                showCancelButton: true, 
+                customClass: {
+                    popup: 'my-custom-swal_' // Aplica a classe CSS personalizada
+                },
+                preConfirm: () => {
+                
+                    const tel = Swal.getPopup().querySelector('#tel').value;
+                    if (!tel | tel=='') {
+                        Swal.showValidationMessage(`Por favor, preencha  o campos Telefone`);
+                    }
+                    return {  tel: tel };
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                   
+                    var db =firebase.firestore()
+                      db.collection(`Users_`).doc(`${email}`).set({
+            
+                         Foto: imagem,
+                         Nome: nome,
+                         Senha: senha,
+                         Email: email,
+                         Tel: result.value.tel,
+                         Data: data,
+                         Hora: hora,
+                    })
+                    Swal.fire(`Tel: ${result.value.tel}`,'','success');
+                }
+            })
+          },500)
             } else {
-
             }
-
         })
+    });
+    //Continuar perfil parte 04 =>
 
-
-
-
-    })
-
-        document.getElementById('select4').addEventListener('click', () => Swal.fire('Você escolheu select 4!'));
+     
     });
         document.getElementById('option2').addEventListener('click', function(){
             Swal.fire({
@@ -1093,8 +1222,8 @@ var Admi = sessionStorage.getItem('Admim_')
         document.getElementById('option5').addEventListener('click', function(){
             Admim('click')
         });
-        document.getElementById('option6').addEventListener('click', () => Swal.fire('Em breve!'));
-        document.getElementById('option7').addEventListener('click', () => Swal.fire('Em breve!'));
+       // document.getElementById('option6').addEventListener('click', () => Swal.fire('Em breve!'));
+        //document.getElementById('option7').addEventListener('click', () => Swal.fire('Em breve!'));
     });
 </script>
 
@@ -1108,7 +1237,7 @@ var Admi = sessionStorage.getItem('Admim_')
                 <button id="select5" style="margin: 5px;">Administradores <i class="fa-solid fa-users"></i></button><br>
                 <button id="select6" style="margin: 5px;">Pedidos de PGs <i class="fa-solid fa-house"></i></button><br>
                 <button id="select7" style="margin: 5px;">Cadastrar Novo PG <i class="fa-solid fa-house"></i></button><br>
-                <button id="select8" style="margin: 5px;">Membros do APP <i class="fa-solid fa-users"></i> </button><br>
+              
             `,
             showCancelButton: true,
             showConfirmButton: false,
@@ -1122,7 +1251,9 @@ var Admi = sessionStorage.getItem('Admim_')
                  document.getElementById('div_Admim').style.display= 'block'
                  Ver_lista_admin('click') 
             },1000)
-        })
+        });
+
+
     }
 </script>
 <script>
