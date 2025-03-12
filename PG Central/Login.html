@@ -421,6 +421,7 @@
         sessionStorage.setItem('email_session', '');
         sessionStorage.setItem('imagem_session', '');
         sessionStorage.setItem('senha_session', '');
+        sessionStorage.setItem('tel_session', '');
 
     var Email_login = document.getElementById('input_email_login').value;
     var Senha_login = document.getElementById('input_senha_login').value;
@@ -478,6 +479,7 @@
           var email= user.Email
           var senha= user.Senha
           var imagem= user.Foto
+          var tel= user.Tel
 
           
            document.getElementById('time').style.display='none'
@@ -495,6 +497,12 @@
         sessionStorage.setItem('email_session', email);
         sessionStorage.setItem('imagem_session', imagem);
         sessionStorage.setItem('senha_session', senha);
+        if(!tel_session){
+            var tel_session = ''
+          } else {
+            sessionStorage.setItem('tel_session', tel);
+          }
+     
 
         setTimeout(function(){
             
@@ -509,38 +517,25 @@
     }
 
     // Atualizar o conteúdo da página com as informações do dispositivo e resolução
-   
-
     if(isMobile()) {
-      
         window.open('Index/Index.html','blank_')
         sessionStorage.setItem('Aparelho', 'Celular')
-     
         window.close()
-        
     } else {
-   
-      
         window.open('Index/Index.html','blank_')
         sessionStorage.setItem('Aparelho', '')
-        
         window.close()
-        
-        
     }
-       
-        },1000)
-
+        },300)
         var time= document.getElementById('time')
         time.style.color='rgb(69, 150, 2)';
         time.style.borderColor= 'rgb(69, 150, 2)'
-      
     } else {
         timeElement.textContent = `${timeLeft}%`;
         timeLeft++;
     }
-}, 2);
-          
+},1);
+    
         }
     })
         })
@@ -558,8 +553,6 @@
         });
     }
   </script>
-
-   
     <script> 
     // Div cad - Div login
      function Cadastre_se() {
@@ -571,10 +564,7 @@
            document.getElementById('div_cad').style.display= 'none'
         document.getElementById('div_login').style.display= 'block'
          document.getElementById('time').style.display='none'
-
      }
-
-
     </script>
     
   <script>
@@ -585,9 +575,8 @@
       var Senha_user=  document.getElementById('input_senha_cad').value=''
       var Conf_senha_user=  document.getElementById('input_confirme_senha_cad').value=''
        document.getElementById('time').style.display='none'
+
     function Cadastrar() {
-        
-       
       var Nome_user=  document.getElementById('input_nome_cad').value;
       var Email_user=  document.getElementById('input_email_cad').value;
       var Senha_user=  document.getElementById('input_senha_cad').value;
@@ -598,13 +587,11 @@
          p_cad_01.innerHTML= 'Preencha o campo Nome!'
          p_cad_01.style.color='red'
          document.getElementById('p_cad_01').style.display='block'
-         
       } else {
         var p_cad_01 = document.getElementById('p_cad_01');
          p_cad_01.innerHTML= 'Sucesso - campo Nome OK!'
          p_cad_01.style.color='rgb(4, 255, 79)'
          document.getElementById('p_cad_01').style.display='block'
-
       };
       if(!Email_user | Email_user == ''){
         var p_cad_02 = document.getElementById('p_cad_02');
@@ -618,7 +605,6 @@
          p_cad_02.style.color='rgb(4, 255, 79)'
          document.getElementById('p_cad_02').style.display='block'
         // document.getElementById('btn_img_perfil_cad').style.display='block'
-
       };
       if(!Senha_user | Senha_user == ''){
         var p_cad_03 = document.getElementById('p_cad_03');
@@ -630,7 +616,6 @@
          p_cad_03.innerHTML= 'Sucesso - campo Senha OK!'
          p_cad_03.style.color='rgb(4, 255, 79)'
          document.getElementById('p_cad_03').style.display='block'
-
       };
       if(!Conf_senha_user | Conf_senha_user == ''){
         var p_cad_04 = document.getElementById('p_cad_04');
@@ -642,7 +627,6 @@
          p_cad_04.innerHTML= 'Sucesso - campo Confirme senha OK!'
          p_cad_04.style.color='rgb(4, 255, 79)'
          document.getElementById('p_cad_04').style.display='block'
-
       };
       var data= sessionStorage.getItem('data')
       var hora= sessionStorage.getItem('hora')
@@ -693,49 +677,43 @@
         })
         setTimeout(function(){
           
-            window.localStorage.setItem('foto_user', '');
-     var Nome_user=  document.getElementById('input_nome_cad').value=''
-      var Email_user=  document.getElementById('input_email_cad').value=''
-      var Senha_user=  document.getElementById('input_senha_cad').value=''
-      var Conf_senha_user=  document.getElementById('input_confirme_senha_cad').value=''
-      var Email_login = document.getElementById('input_email_login').value=''
-      var Senha_login = document.getElementById('input_senha_login').value=''
-       document.getElementById('p_cad_01').style.display='none'
-        document.getElementById('p_cad_02').style.display='none'
-         document.getElementById('p_cad_03').style.display='none'
-          document.getElementById('p_cad_04').style.display='none'
+           window.localStorage.setItem('foto_user', '');
+           var Nome_user=  document.getElementById('input_nome_cad').value=''
+           var Email_user=  document.getElementById('input_email_cad').value=''
+           var Senha_user=  document.getElementById('input_senha_cad').value=''
+           var Conf_senha_user=  document.getElementById('input_confirme_senha_cad').value=''
+           var Email_login = document.getElementById('input_email_login').value=''
+           var Senha_login = document.getElementById('input_senha_login').value=''
+           document.getElementById('p_cad_01').style.display='none'
+           document.getElementById('p_cad_02').style.display='none'
+           document.getElementById('p_cad_03').style.display='none'
+           document.getElementById('p_cad_04').style.display='none'
            document.getElementById('p_cad_05').style.display='none'
-          document.getElementById('p_cad_06').style.display='none'
-          window.localStorage.setItem('foto_user', '');
-          document.getElementById('img_cad').src= '../src/Profile-PNG-Images.png'
-          window.location.reload()
+           document.getElementById('p_cad_06').style.display='none'
+           window.localStorage.setItem('foto_user', '');
+           document.getElementById('img_cad').src= '../src/Profile-PNG-Images.png'
+           window.location.reload()
 
         },1000)
-
         })
         .catch((error) => {
           Swal.fire('Erro ao cadastrar:', 'Não foi possível realizar o cadastro!','');
         });
-    
     }}
   </script>
 
 <script>
     //foto perfril
     function img_perfil_cad() {
-
-        var Nome_user=  document.getElementById('input_nome_cad').value;
+      var Nome_user=  document.getElementById('input_nome_cad').value;
       var Email_user=  document.getElementById('input_email_cad').value;
       var Senha_user=  document.getElementById('input_senha_cad').value;
       var Conf_senha_user=  document.getElementById('input_confirme_senha_cad').value;
       
-
       if(!Nome_user | Nome_user== '' | !Email_user | Email_user== ''){
 
         window.Swal.fire('Atenção!', 'Preencha os campos Nome e Email para continuar!','')
       } else {
-
-       
         const firebaseConfi = {
        apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
        authDomain: "pg-iasd-central.firebaseapp.com",
@@ -747,7 +725,7 @@
      };
       firebase.initializeApp(firebaseConfi);
       var db = firebase.firestore();
-         
+
         document.getElementById('files').click()
         var uploader = document.getElementById('uploader ');
          var fileButton = document.getElementById('files');
@@ -782,12 +760,10 @@
                         i = 0;                     
                         window.sessionStorage.setItem('foto_user', url_imagem);
                         document.getElementById('img_cad').src= url_imagem            
-                        
-                       
+            
                           setTimeout(function(){
                               document.getElementById('myProgress').style.display = 'none'
-                          },2000)
-                        
+                          },2000)             
                     } else {
                         width++;
                         elem.style.width = width + "%";
@@ -795,7 +771,6 @@
                     }
                 }
             }
-
         })
     })
 })
@@ -810,10 +785,7 @@
      }
     </script>
     <script>
-
         //Data e Hora
-    
-    
         setInterval(function() {
         
     const newDate = new Date()
@@ -827,26 +799,18 @@
     const seconds = now.getSeconds().toString().padStart(2, '0');
     const timeString = `${hours}:${minutes}:${seconds}`;
     // const lbl_data = document.getElementById('lbl-data');
-    
     // lbl_data.innerHTML = `${data}`
-    
     sessionStorage.setItem('data', data)
     sessionStorage.setItem('hora', timeString)
-    
     //var Data = document.getElementById('lbl_data_head')
     //Data.innerHTML= data;
-    
-    
-    
     }, 1000)
-    
     
     function ver_data_hora(){
       var data= sessionStorage.getItem('data')
       var hora= sessionStorage.getItem('hora')
         Swal.fire('Hora e Data',`Hora: ${hora}<br> Data: ${data}`)
     }
-    
     </script>
 
     

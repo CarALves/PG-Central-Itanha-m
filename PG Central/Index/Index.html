@@ -90,7 +90,7 @@
             font-size: 15px;
             font-weight: bold;
         }
-        #option1,#option2,#option3,#option4,#option5,#option6,#option7, #select,
+        #option1,#option2,#option3,#option4,#option5,#option6,#option7, #select,#select9 ,#select10,#select11,
        #select1, #select2, #select3, #select4,#Ver_pgs,#Cad_pgs,#P_Oração, #select5, #select6, #select7, #select8 {
         width: 220px;
         background-color: rgba(79, 87, 79, 0);
@@ -103,7 +103,7 @@
         border: 0cap;
         border-bottom: 2px solid rgb(57, 57, 58);
     }
-    #option1:hover,#option2:hover,#option3:hover,#option4:hover,#option5:hover,#option6:hover,#option7:hover, #select:hover ,
+    #option1:hover,#option2:hover,#option3:hover,#option4:hover,#option5:hover,#option6:hover,#option7:hover, #select:hover ,#select9:hover ,#select10:hover , #select11:hover, 
     #select1:hover, #select2:hover, #select3:hover, #select4:hover,#Ver_pgs:hover,#Cad_pgs:hover,#P_Oração:hover, #select5:hover, #select6:hover, #select7:hover, #select8:hover {
         background-color: rgb(140, 135, 135);
         color:rgb(255, 255, 255);
@@ -444,6 +444,96 @@
             color: red;
             text-decoration: underline 2px solid blue;
         }
+        #img_pgg {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+            margin-left: 5px;
+            margin-top: 5px;
+            /* Largura da barra de rolagem */
+            cursor: pointer;
+         
+        }
+         ::-webkit-scrollbar-thumb {
+            margin-left: 5px;
+            background-color: rgb(6, 3, 219);
+            /* Cor do polegar da barra de rolagem */
+            margin-top: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+         :-webkit-scrollbar-track {
+            /* Cor da trilha da barra de rolagem */
+            margin-top: 5px;
+            border-radius: 7 rgb(177, 175, 175);
+            background-color: rgb(37, 37, 37);
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 20px;
+            margin-top: 20px;
+         }
+        #lbl_sino_pgg {
+            font-size: 13px;
+            border-radius: 50%;
+            background-color: rgba(165, 42, 42, 0);
+            color: rgb(250, 4, 4);
+            cursor: pointer;
+            float: left;
+            margin-left: 20px;
+            margin-top: 20px;
+            font-weight: bolder;
+           
+        }
+        #div_locais_pg {
+            margin: 0 auto;
+            width: 50%;
+            min-width: 420px;
+            border-radius: 20px;
+            max-height: 91vh;
+            overflow-y: auto;
+            
+        }
+        #div_locais_pg h2 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding: 10px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 7px;
+            font-size: 20px;
+            display: none;
+        }
+        #div_list {
+            margin-bottom: 20px;
+            background-color: rgb(255, 255, 255);
+            min-width: 370px;
+            border-radius: 20px;
+            cursor: pointer;
+            padding: 20px;
+        }
+         #btn_ver_PGG {
+            font-size: 20px;
+            cursor: pointer;
+            float: right;
+            margin-right: 10px;
+        }
+        #btn_edtar_PGG {
+            font-size: 22px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        #btn_edtar_PGG:hover, #btn_ver_PGG:hover {
+            color: rgb(34, 112, 3);
+        }
+        
   
 
 
@@ -565,12 +655,15 @@
                     <div id="DICP">
                         <button onclick="Set_cad_pg()">Cadastrar</button>  <label id="lbl_limpar_cad_pg" for="" onclick="limpar_cad_pg()">Limpar campos</label>
                     </div>
-
-
                 </div>
             </div>
+        </div>
 
+        <div id="div_locais_pg">
+              <h2>Locais de Pequenos Gripos  <i id="i_sino_pgg" class="fa-solid fa-bell"> <label id="lbl_sino_pgg" for=""></label></i></h2>
+            <div id="list_locais_pg">
 
+            </div>
         </div>
 
 
@@ -645,28 +738,21 @@
                     
                 setTimeout(function(){
                     Swal.fire('Sucesso!', `Dados do novo PG<br><br> Resp. ${responsavel_pg}<br>Rua: ${rua_pg}<br>Bairro: ${bairro_pg}<br>Nº: ${número_pg}<br>Tel: ${tel_pg}<br>Dia: ${dia_pg}<br>Horário: ${horario_pg}<br>Ref: ${referência_pg}`, 'success')
-             
-
-                    limpar_cad_pg('click')
-                    
+                    limpar_cad_pg('click')     
                 },1000)
             }
-           
         }
     </script>
     
     <script>
         // ADM Membros
-
         function ver_Membros_admin() {
              
               document.getElementById('lista01').style.display= 'none'
               document.getElementById('lista02').style.display= 'block'
               document.getElementById('admim_manualmente').style.display= 'none'
-
-            var  userListDiv2 = document.getElementById('lista_members_admim');
-       
-       userListDiv2.innerHTML=''
+              var  userListDiv2 = document.getElementById('lista_members_admim');
+              userListDiv2.innerHTML=''
    
         const firebaseConfigurar = {
         apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
@@ -715,11 +801,11 @@
       //  li.appendChild(label_2);
         li.appendChild(button_2);
       //  li.appendChild(button);
-      
+
         userListDiv2.appendChild(li);
 
         imagem_ul_ADM1.addEventListener('click', function(){
-            window.swal('','',user.Foto)
+            window.swal('', user.Nome, user.Foto)
         })
         
       button_2.addEventListener("click", () => {
@@ -809,8 +895,9 @@ setTimeout(function(){
         function Escoler_novo_admin() {
             document.getElementById('admim_manualmente').style.display= 'block'
             document.getElementById('div_Admim').style.display= 'block'
-              document.getElementById('lista01').style.display= 'none'
-                document.getElementById('lista02').style.display= 'none'
+            document.getElementById('lista01').style.display= 'none'
+            document.getElementById('lista02').style.display= 'none'
+            document.getElementById('div_locais_pg').style.display= 'none'
         };
         function Sair_Admin_manual() {
               document.getElementById('admim_manualmente').style.display= 'none'
@@ -829,9 +916,10 @@ setTimeout(function(){
 
          function Ver_lista_admin() {
 
-        document.getElementById('admim_manualmente').style.display= 'none'
+          document.getElementById('admim_manualmente').style.display= 'none'
           document.getElementById('lista02').style.display= 'none'
-        document.getElementById('lista01').style.display= 'block'
+          document.getElementById('lista01').style.display= 'block'
+          document.getElementById('div_locais_pg').style.display= 'none'
   
        var ADM_email = sessionStorage.getItem('ADM_email')
        var ADM_imagem = sessionStorage.getItem('ADM_imagem')
@@ -892,8 +980,6 @@ setTimeout(function(){
       //  li.appendChild(button);
       
         userListDiv.appendChild(li);
-    
-        
       button_2.addEventListener("click", () => {
        
         var text= user.Nome.split(' ')
@@ -934,7 +1020,7 @@ setTimeout(function(){
               });
             })
             imagem_ul_ADM1.addEventListener('click', function(){
-                window.swal('','',user.Foto)
+                window.swal('',user.Nome,user.Foto)
               })
         })
     })
@@ -1393,6 +1479,7 @@ var Admi = sessionStorage.getItem('Admim_')
                          Data: data,
                          Hora: hora,
                     })
+                    sessionStorage.setItem('tel_session', result.value.tel);
                     Swal.fire(`Tel: ${result.value.tel}`,'','success');
                 }
             })
@@ -1402,15 +1489,146 @@ var Admi = sessionStorage.getItem('Admim_')
         })
     });
     //Continuar perfil parte 04 =>
-
-     
     });
         document.getElementById('option2').addEventListener('click', function(){
+            document.getElementById('admim_manualmente').style.display= 'none'
+            document.getElementById('div_Admim').style.display= 'none'
+            document.getElementById('lista01').style.display= 'none'
+            document.getElementById('lista02').style.display= 'none'
+            document.getElementById('div_PGs').style.display= 'none'
+              document.getElementById('div_locais_pg').style.display= 'block'
+
+              var data= sessionStorage.getItem('data')
+              var hora= sessionStorage.getItem('hora')
+             var ADM_email= sessionStorage.getItem('ADM_email');
+             var ADM_nome= sessionStorage.getItem('ADM_nome');
+
+            const MostDiv = document.getElementById('list_locais_pg');
+         MostDiv.innerHTML= ''
+    
+                const firebaseConfi = {
+              apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
+              authDomain: "pg-iasd-central.firebaseapp.com",
+              projectId: "pg-iasd-central",
+              storageBucket: "pg-iasd-central.firebasestorage.app",
+              messagingSenderId: "186076376922",
+              appId: "1:186076376922:web:ada66fdb6f7a92d1500d63",
+              measurementId: "G-4LZY64YZ33"
+            };
+            firebase.initializeApp(firebaseConfi);
+              const dbmos = firebase.firestore();
+         const produtosRef = dbmos.collection(`PGS_Central`);
+      
+          produtosRef.get().then((querySnapshot) => {
+          querySnapshot.forEach(doc => {
+           // localStorage.setItem('docs_list_agenda', doc.data())
+                     
+       var dados = doc.data();
+       if(dados) {
+ 
+       const itens =  querySnapshot.size; // Número de documentos na coleção
+      // const newDocNumber = count + 1; // Próximo número sequencial
+      
+        const Data_evento = dados.Data_evento
+        const userImage= document.createElement('img')
+        const  btn_Ver_PGG= document.createElement('butoon')
+        const  btn_edtar_PGG= document.createElement('butoon')
+        const label_most= document.createElement('label')
+        const label_most_1= document.createElement('h3')
+        const label_most_2=  document.createElement('label')
+        const label_most_3= document.createElement('label')
+        const label_most_4=  document.createElement('label')
+        const label_most_5=  document.createElement('label')
+        const label_most_6= document.createElement('label')
+        const label_most_7=  document.createElement('label')
+        const div = document.createElement("div");
+        const br= document.createElement("br");
+        const br1= document.createElement("br");
+        const br2= document.createElement("br");
+        const br3= document.createElement("br");
+        const br4= document.createElement("br");
+        const br5= document.createElement("br");
+        const br6= document.createElement("br");
+        const br7= document.createElement("br");
+        const br8= document.createElement("br");
+     
+        label_most.textContent= `PG: ${dados.Responsavel}\n _____________________________Dia: ${dados.Dia}.`
+      
+            label_most_1.textContent= `Local do PG, dia e horário.`
+            label_most_2.textContent= `Rua: ${dados.Rua}, Nº ${dados.Número}.`
+            label_most_3.textContent= `Bairro: ${dados.Bairro} .`
+            label_most_4.textContent= `Cidade: ${dados.Cidade},`
+            label_most_5.textContent= `Horário de Inicio: ${dados.Horário}H`
+            label_most_6.textContent= `Ref: ${dados.Ref}`
+            btn_Ver_PGG.textContent= '';
+            btn_Ver_PGG.className='fa-solid fa-eye-low-vision';
+
+            if(!ADM_email | ADM_email == '' |!ADM_nome | ADM_nome == ''){
+                 btn_edtar_PGG.textContent= ''
+           } else {
+              btn_edtar_PGG.textContent= ''
+              btn_edtar_PGG.className= 'fa-solid fa-pen-to-square'
+           }
+                          
+        userImage.src= '../src/Calendario.png'
+        userImage.id= 'img_pgg';
+        label_most.id= 'label_most'
+        label_most_1.id= 'label_most_1'
+        label_most_2.id= 'label_most_2'
+        label_most_3.id= 'label_most_2'
+        label_most_4.id= 'label_most_2'
+        label_most_5.id= 'label_most_2'
+        label_most_6.id= 'label_most_2'
+        label_most_7.id= 'label_most_2'
+        btn_Ver_PGG.id= 'btn_ver_PGG'
+        btn_edtar_PGG.id= 'btn_edtar_PGG'
+        div.id= 'div_list'
+
+        div.appendChild( btn_Ver_PGG);
+        div.appendChild(label_most_1);
+        div.appendChild(userImage);
+        div.appendChild(label_most);
+        div.appendChild(br);
+        div.appendChild(br1);
+        div.appendChild(label_most_2);
+        div.appendChild(br2);
+        div.appendChild(label_most_3);
+        div.appendChild(br3);
+        div.appendChild(label_most_4);
+        div.appendChild(br4);
+        div.appendChild(label_most_5);
+        div.appendChild(br5);
+        div.appendChild(label_most_6);
+        div.appendChild(br6);
+        div.appendChild(label_most_7);
+        div.appendChild(br7);
+      
+        div.appendChild( btn_edtar_PGG);
+          
+        MostDiv.appendChild(div);
+     
+       var N_itens= document.getElementById('lbl_sino_pgg');
+       N_itens.innerHTML= itens 
+       document.getElementById('i_sino_pgg').value= itens
+      
+        userImage.addEventListener('click', function(){
+            window.open(user.Foto,'Imagem','icon=src/Profile-PNG-Images.png, height=730,width=730,autoHideMenuBar=true');
+        });
+
+        btn_edtar_PGG.addEventListener('click', function(){
+
+            Swal.fire('Deu certo!',`PG: ${dados.Responsavel}`,'success')
+        });
+        btn_Ver_PGG.addEventListener('click', function(){
+
+
             Swal.fire({
-                title: 'Locais de Pequenos Grupos',
+                title: `PG - ${dados.Responsavel}`,
             html: `
                <br>
-                <button id="Ver_pgs" style="margin: 5px;">Ver locais <i class="fa-solid fa-eye-low-vision"></i></button><br>
+                <button id="select9" style="margin: 5px;">Participantes <i class="fa-solid fa-users"></i></button><br>
+                <button id="select10" style="margin: 5px;">Quero Participar <i class="fa-solid fa-user"></i></button><br>
+                <button id="select11" style="margin: 5px;">Falar com Admin <i class="fa-solid fa-comment-dots"></i></button><br>
             `,
             showCancelButton: true,
             showConfirmButton: false,
@@ -1418,24 +1636,60 @@ var Admi = sessionStorage.getItem('Admim_')
       popup: 'my-custom-swal' // Aplica a classe CSS personalizada
     }
         })
-        document.getElementById('Ver_pgs').addEventListener('click', () => 
-        Swal.fire('Locais dos PGs','',''));
+        document.getElementById('select9').addEventListener('click', function() {
+            Swal.fire('Partcipantes','','success')
+
+       });
+       document.getElementById('select10').addEventListener('click', function() {
+
+        const firebaseConfigure = {
+        apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
+        authDomain: "pg-iasd-central.firebaseapp.com",
+        projectId: "pg-iasd-central",
+        storageBucket: "pg-iasd-central.firebasestorage.app",
+        messagingSenderId: "186076376922",
+        appId: "1:186076376922:web:ada66fdb6f7a92d1500d63",
+        measurementId: "G-4LZY64YZ33"
+      };
+      firebase.initializeApp(firebaseConfigure);
+           
+            var data= sessionStorage.getItem('data')
+              var hora= sessionStorage.getItem('hora')
+          var nome_session = sessionStorage.getItem('nome_session');
+          var email_session =sessionStorage.getItem('email_session');
+          var imagem_session =sessionStorage.getItem('imagem_session');
+          var tel_session= sessionStorage.getItem('tel_session');
+          if(!tel_session){
+            var tel_session = ''
+          }
+       
+                     var dbp =firebase.firestore()
+                      dbp.collection(`MSM_ADM`).doc(`${email_session} ${hora}`).set({
+            
+                         Foto: imagem_session,
+                         Nome: nome_session,
+                         Email: email_session,
+                         Tel: tel_session,
+                         Data: data,
+                         Hora: hora,
+                    })
+                    alert(tel_session)
+                   Swal.fire('Quero Participar','seu pedido foi enviado ao administrador.<br> Em breve entraremos em contato com você!','success')
+       
+       }),
+       document.getElementById('select11').addEventListener('click', function() {
+            Swal.fire('Falar comAdmin','','success')
+
+      })
+
+        })
+    }
+})
+
+})
     });
         document.getElementById('option3').addEventListener('click', function() {
-            Swal.fire({
-                title: 'Cadastrar local para Pequeno Grupo',
-            html: `
-               <br>
-                <button id="Cad_pgs" style="margin: 5px;">Sim, cadastrar <i class="fa-solid fa-house"></i></button><br>
-            `,
-            showCancelButton: true,
-            showConfirmButton: false,
-            customClass: {
-      popup: 'my-custom-swal' // Aplica a classe CSS personalizada
-    }      
-        })
-        document.getElementById('Cad_pgs').addEventListener('click', () => 
-        Swal.fire('Cadastre seu local','',''));
+             alert('P_Cad')
 
             });
             document.getElementById('option4').addEventListener('click', function() {
@@ -1499,12 +1753,13 @@ var Admi = sessionStorage.getItem('Admim_')
             },500)
         });
         document.getElementById('select7').addEventListener('click', function() {
-    
+            document.getElementById('div_locais_pg').style.display= 'none'
             setTimeout(function(){
                 Swal.fire('Cadastre novo  PG')
                 document.getElementById('div_PGs').style.display= 'block'
                 document.getElementById('admim_manualmente').style.display= 'none'
             document.getElementById('div_Admim').style.display= 'none'
+            
              
             },500)
         });
