@@ -76,6 +76,7 @@
             border-radius: 4px;
             margin-right: 20px;
             cursor: pointer;
+            font-size: 16px;
         }
         #div_heaad button:hover {
             color: rgb(93, 8, 52);
@@ -243,7 +244,7 @@
         #menu_admin button {
             background-color: rgba(18, 18, 19, 0);
             cursor: pointer;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: bold;
             color: rgb(65, 63, 63);
             padding: 7px;
@@ -342,13 +343,13 @@
         }
         .my-custom-swal_ {
             width: 640px;
-            min-width: 400px;
+            min-width: 410px;
             border-radius: 15px;
             
 
         }
         .my-custom-swal_ input {
-           border: 2px solid rgb(122, 121, 121);
+           width: 70%;
             cursor: pointer;
         }
         .my-custom-swal_ h2 {
@@ -358,8 +359,97 @@
             background-color: rgb(93, 153, 153);
             color: brown;
         }
+        #div_PGs {
+            margin: 0 auto;
+            width: 50%;
+            min-width: 370px;
+            padding: 5px;
+            margin-top: 10px;
+            background-color: rgb(255, 255, 255);
+            padding-top: 10px;
+            padding-bottom: 30px;
+            border-radius: 20px;
+            padding-left: 20px;
+            padding-right: 30px;
+            padding-bottom: 200px;
+            display: none;
+        }
+        #DICP {
+            margin-bottom: 10px;
+        } 
+        #DICP label {
+            font-size: 13px;
+            color: rgb(68, 67, 67);
+            
+        }
+        #DICP input {
+            padding: 10px;
+            width: 96%;
+            min-width: 360px;
+            cursor: pointer;
+            background-color: rgb(255, 255, 255);
+            color: rgb(56, 55, 55);
+           
+        }
+        #DICP input:hover{
+            background-color: aqua;
+            color: brown;
+        }
+        #DICP #input_numero_cad_pg, #DICP  #input_data_cad_pg, #DICP  #input_hora_cad_pg, #DICP  #input_tel_cad_pg {
+            padding: 10px;
+            width: 20%;
+            min-width: 200px;
+            cursor: pointer;
+        }
+        #h2_cad_pg{
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        #DICP #input_Referência_cad_pg {
+            width: 96%;
+            height: 7vh;
+            max-height: 15vh;
+            font-size: 15px;
+            margin-top: 1px;
+            border: 2px solid rgb(65, 64, 64);
+            min-width: 360px;
+            padding: 10px;
+        }
+        #DICP button {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            width: 40%;
+            padding: 10px;
+            border: 2px solid rgb(87, 86, 86);
+            cursor: pointer;
+            border-radius: 7px;
+            margin-right: 16%;
+        }
+        #DICP button:hover {
+            background-color: aqua;
+            color: brown;
+        }
+        #DICP #lbl_limpar_cad_pg {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            width: 40%;
+            padding: 10px;
+            border: 0cap;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        #DICP #lbl_limpar_cad_pg:hover {
+
+            color: red;
+            text-decoration: underline 2px solid blue;
+        }
   
+
+
+
     </style>
+
 </head>
 <body>
     <div id="div_inicial">
@@ -381,6 +471,8 @@
             <button id="btn_heaad_02" onclick=" toggleFullScreen()">Tela <i class="fa-solid fa-desktop"></i></button>
             <button id="btn_heaad_03" onclick="Menu()">Menu <i id="i_btn_heaad" class="fa-solid fa-bars"></i></button>
         </div>
+
+
         <div id="div_Admim">
             <div id="div_admim_body">
                 
@@ -416,7 +508,152 @@
                 </div>
             </div>
         </div>
+         
+        <div id="div_PGs">
+            <div id="div_cad_pg">
+                
+                <h2 id="h2_cad_pg">Cadastre o local do Pequeno Grupo</h2>
+
+                <div id="div_input_cad_pg">
+
+                    <div id="DICP">
+                        <label for=""> Nome do responsavel pelo local. <br>
+                            <input type="text" id="input_nome_cad_pg" placeholder="Nome do Responsavel...">
+                        </label>
+                    </div>
+                    <div id="DICP">
+                        <label for=""> Rua: <br>
+                            <input type="text" id="input_rua_cad_pg" placeholder="Rua....">
+                        </label>
+                    </div>
+                    <div id="DICP">
+                        <label for=""> Bairro: <br>
+                            <input type="text" id="input_bairro_cad_pg" placeholder="Bairro....">
+                        </label>
+                    </div>
+                    <div id="DICP">
+                        <label for=""> Cidade: <br>
+                            <input type="text" id="input_cidade_cad_pg" placeholder="Cidade....">
+                        </label>
+                    </div>
+                    <div id="DICP">
+                        <label for=""> Referência (Opcional): <br>
+                        <textarea name="" id="input_Referência_cad_pg"  placeholder="Referência..."></textarea> 
+                  </div> </label>
+                    <div id="DICP">
+                        <label for=""> Número: <br>
+                            <input type="text" id="input_numero_cad_pg" placeholder="Nº....">
+                        </label>
+                    </div>
+                    <div id="DICP">
+                        <label for=""> Telefone P/ Contato: <br>
+                            <input type="text" id="input_tel_cad_pg" placeholder="11 9 9999 9999">
+                        </label>
+                    </div>
+                
+                    <div id="DICP">
+                        <label for=""> Dia: <br>
+                            <input type="text" id="input_data_cad_pg" placeholder="Dia....">
+                        </label>
+                    </div>
+                    <div id="DICP">
+                        <label for=""> Horário: <br>
+                            <input type="time" id="input_hora_cad_pg" value="00:00" placeholder="Horário....">
+                        </label>
+                    </div>
+                    <br>
+                    <div id="DICP">
+                        <button onclick="Set_cad_pg()">Cadastrar</button>  <label id="lbl_limpar_cad_pg" for="" onclick="limpar_cad_pg()">Limpar campos</label>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
     </div>
+    <script>
+         function limpar_cad_pg() {
+
+            document.getElementById('input_nome_cad_pg').value=''
+            document.getElementById('input_rua_cad_pg').value=''
+            document.getElementById('input_bairro_cad_pg').value=''
+            document.getElementById('input_cidade_cad_pg').value=''
+            document.getElementById('input_numero_cad_pg').value=''
+            document.getElementById('input_Referência_cad_pg').value=''
+            document.getElementById('input_tel_cad_pg').value=''
+            document.getElementById('input_data_cad_pg'). value=''
+            document.getElementById('input_hora_cad_pg'). value='00:00'
+
+         };
+
+        function Set_cad_pg() {
+
+            var data= sessionStorage.getItem('data')
+            var hora= sessionStorage.getItem('hora')
+            var responsavel_pg = document.getElementById('input_nome_cad_pg').value;
+            var rua_pg = document.getElementById('input_rua_cad_pg').value;
+            var bairro_pg = document.getElementById('input_bairro_cad_pg').value;
+            var cidade_pg = document.getElementById('input_cidade_cad_pg').value;
+            var número_pg = document.getElementById('input_numero_cad_pg').value
+            var referência_pg = document.getElementById('input_Referência_cad_pg').value;
+            var tel_pg= document.getElementById('input_tel_cad_pg').value;
+            var dia_pg= document.getElementById('input_data_cad_pg'). value;
+            var horario_pg= document.getElementById('input_hora_cad_pg'). value;
+            var User_email_login= sessionStorage.getItem('email_session');
+            var User_nome_login =sessionStorage.getItem('nome_session');
+
+                   const firebaseConfiguração = {
+               apiKey: "AIzaSyBGv64uOAx6vrBEjFR9Ikjk7RC-_VghBxs",
+               authDomain: "pg-iasd-central.firebaseapp.com",
+               projectId: "pg-iasd-central",
+               storageBucket: "pg-iasd-central.firebasestorage.app",
+               messagingSenderId: "186076376922",
+               appId: "1:186076376922:web:ada66fdb6f7a92d1500d63",
+               measurementId: "G-4LZY64YZ33"
+             };
+                         // Initialize Firebase
+                     firebase.initializeApp(firebaseConfiguração);
+
+            if(!responsavel_pg | responsavel_pg == ''| !rua_pg | rua_pg =='' |!bairro_pg | bairro_pg =='' |!cidade_pg | cidade_pg =='' | !número_pg | número_pg =='' |!tel_pg | tel_pg =='' |!dia_pg | dia_pg =='' | !horario_pg | horario_pg ==''| horario_pg == '00:00' ){
+
+                Swal.fire('Preencha todos os Campos', ' É  necessárioo preenchimento dos campos que não são opcionais', 'warning')
+            } else{
+              
+                var db =firebase.firestore()
+                      db.collection(`PGS_Central`).doc(`${User_email_login} ${hora}`).set({
+            
+                     
+                         Responsavel: responsavel_pg,
+                         Rua: rua_pg,
+                         Bairro: bairro_pg,
+                         Cidade: cidade_pg,
+                         Número: número_pg,
+                         Ref: referência_pg,
+                         Tel: tel_pg,
+                         Dia: dia_pg,
+                         Horário: horario_pg,
+                         Editor_Email: User_email_login,
+                         Editor_Nome: User_nome_login,
+                         Data: data,
+                         Hora: hora,
+                         Secretário:'',
+                    })
+                    
+                setTimeout(function(){
+                    Swal.fire('Sucesso!', `Dados do novo PG<br><br> Resp. ${responsavel_pg}<br>Rua: ${rua_pg}<br>Bairro: ${bairro_pg}<br>Nº: ${número_pg}<br>Tel: ${tel_pg}<br>Dia: ${dia_pg}<br>Horário: ${horario_pg}<br>Ref: ${referência_pg}`, 'success')
+             
+
+                    limpar_cad_pg('click')
+                    
+                },1000)
+            }
+           
+        }
+    </script>
     
     <script>
         // ADM Membros
@@ -690,7 +927,7 @@ setTimeout(function(){
                 setTimeout(function(){
                 Swal.fire('Sucesso!','Administrador(a) removido!','success')
                 Ver_lista_admin('click')
-            },1500) 
+            },1000) 
               });
               document.getElementById('select4').addEventListener('click', function() {
             alert('Breve')
@@ -1246,14 +1483,31 @@ var Admi = sessionStorage.getItem('Admim_')
     }
         })
         document.getElementById('select5').addEventListener('click', function() {
-           Swal.fire('Administradores','','')
+           document.getElementById('div_PGs').style.display= 'none'
             setTimeout(function(){
+                Swal.fire('Administradores','','')
                  document.getElementById('div_Admim').style.display= 'block'
                  Ver_lista_admin('click') 
-            },1000)
+            },500)
         });
-
-
+        document.getElementById('select6').addEventListener('click', function() {
+              document.getElementById('div_PGs').style.display= 'none'
+               document.getElementById('div_Admim').style.display= 'none'
+          
+            setTimeout(function(){
+             Swal.fire('Pedidos de PGs')
+            },500)
+        });
+        document.getElementById('select7').addEventListener('click', function() {
+    
+            setTimeout(function(){
+                Swal.fire('Cadastre novo  PG')
+                document.getElementById('div_PGs').style.display= 'block'
+                document.getElementById('admim_manualmente').style.display= 'none'
+            document.getElementById('div_Admim').style.display= 'none'
+             
+            },500)
+        });
     }
 </script>
 <script>
