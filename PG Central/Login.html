@@ -553,13 +553,13 @@
         .catch((error) => {
           Swal.fire('Erro ao logar:', 'Verifique se o Email ou Senha estão corretos','error');
           var p_cad_05 = document.getElementById('p_cad_05');
-         p_cad_05.innerHTML= 'Erro - Verifique cammpo Email!'
+         p_cad_05.innerHTML= 'Erro - Verifique campo Email!'
          p_cad_05.style.color='red'
          document.getElementById('p_cad_05').style.display='block'
 
          var p_cad_06 = document.getElementById('p_cad_06');
          p_cad_06.style.color='red'
-         p_cad_06.innerHTML= 'Erro - Verifique o cammpo Senha '
+         p_cad_06.innerHTML= 'Erro - Verifique o campo Senha '
          document.getElementById('p_cad_06').style.display='block'
         });
     }
